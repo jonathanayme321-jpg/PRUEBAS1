@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant reading (&:where(.reading, .reading *));
+
+/* ============================================================
+   PALETAS Y COLORES DE ACENTO DINÁMICOS
+   ============================================================ */
+:root {
+  --accent-main: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-light: #eff6ff;
+  --accent-light-border: #bfdbfe;
+  --accent-text: #1d4ed8;
+  --accent-dark-bg: rgba(37, 99, 235, 0.2);
+  --accent-dark-text: #93c5fd;
+  --accent-shadow: rgba(37, 99, 235, 0.25);
+}
+
+[data-accent="emerald"] {
+  --accent-main: #059669;
+  --accent-hover: #047857;
+  --accent-light: #ecfdf5;
+  --accent-light-border: #a7f3d0;
+  --accent-text: #047857;
+  --accent-dark-bg: rgba(5, 150, 105, 0.2);
+  --accent-dark-text: #6ee7b7;
+  --accent-shadow: rgba(5, 150, 105, 0.25);
+}
+
+[data-accent="purple"] {
+  --accent-main: #7c3aed;
+  --accent-hover: #6d28d9;
+  --accent-light: #f5f3ff;
+  --accent-light-border: #ddd6fe;
+  --accent-text: #6d28d9;
+  --accent-dark-bg: rgba(124, 58, 237, 0.2);
+  --accent-dark-text: #c4b5fd;
+  --accent-shadow: rgba(124, 58, 237, 0.25);
+}
+
+[data-accent="amber"] {
+  --accent-main: #d97706;
+  --accent-hover: #b45309;
+  --accent-light: #fffbeb;
+  --accent-light-border: #fde68a;
+  --accent-text: #b45309;
+  --accent-dark-bg: rgba(217, 119, 6, 0.2);
+  --accent-dark-text: #fcd34d;
+  --accent-shadow: rgba(217, 119, 6, 0.25);
+}
+
+[data-accent="rose"] {
+  --accent-main: #e11d48;
+  --accent-hover: #be123c;
+  --accent-light: #fff1f2;
+  --accent-light-border: #fecdd3;
+  --accent-text: #be123c;
+  --accent-dark-bg: rgba(225, 29, 72, 0.2);
+  --accent-dark-text: #fda4af;
+  --accent-shadow: rgba(225, 29, 72, 0.25);
+}
+
+[data-accent="cyan"] {
+  --accent-main: #0891b2;
+  --accent-hover: #0e7490;
+  --accent-light: #ecfeff;
+  --accent-light-border: #a5f3fc;
+  --accent-text: #0e7490;
+  --accent-dark-bg: rgba(8, 145, 178, 0.2);
+  --accent-dark-text: #67e8f9;
+  --accent-shadow: rgba(8, 145, 178, 0.25);
+}
+
+[data-accent="indigo"] {
+  --accent-main: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-light: #eef2ff;
+  --accent-light-border: #c7d2fe;
+  --accent-text: #4338ca;
+  --accent-dark-bg: rgba(79, 70, 229, 0.2);
+  --accent-dark-text: #a5b4fc;
+  --accent-shadow: rgba(79, 70, 229, 0.25);
+}
+
+/* ============================================================
+   APLICACIÓN DEL COLOR DE ACENTO DINÁMICO A LA UI
+   ============================================================ */
+[data-accent] .bg-blue-600,
+[data-accent] .from-blue-600 {
+  background-color: var(--accent-main) !important;
+  --tw-gradient-from: var(--accent-main) !important;
+}
+
+[data-accent] .to-blue-500 {
+  --tw-gradient-to: var(--accent-hover) !important;
+}
+
+[data-accent] .hover\:bg-blue-700:hover,
+[data-accent] .hover\:bg-blue-800:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+[data-accent] .text-blue-600,
+[data-accent] .text-blue-700,
+[data-accent] .text-blue-800 {
+  color: var(--accent-main) !important;
+}
+
+[data-accent] .hover\:text-blue-600:hover,
+[data-accent] .hover\:text-blue-700:hover,
+[data-accent] .group:hover .group-hover\:text-blue-600 {
+  color: var(--accent-main) !important;
+}
+
+[data-accent] .border-blue-600,
+[data-accent] .border-blue-500 {
+  border-color: var(--accent-main) !important;
+}
+
+[data-accent] .border-blue-200,
+[data-accent] .border-blue-100,
+[data-accent] .hover\:border-blue-300:hover {
+  border-color: var(--accent-light-border) !important;
+}
+
+[data-accent] .bg-blue-50,
+[data-accent] .bg-blue-50\/30,
+[data-accent] .bg-blue-50\/40,
+[data-accent] .bg-blue-50\/50,
+[data-accent] .bg-blue-50\/60,
+[data-accent] .hover\:bg-blue-50:hover,
+[data-accent] .hover\:bg-blue-50\/50:hover,
+[data-accent] .hover\:bg-blue-100:hover {
+  background-color: var(--accent-light) !important;
+}
+
+[data-accent] .ring-blue-600,
+[data-accent] .focus\:ring-blue-500:focus,
+[data-accent] .focus\:ring-blue-400:focus {
+  --tw-ring-color: var(--accent-main) !important;
+}
+
+[data-accent] .shadow-blue-600\/25,
+[data-accent] .shadow-blue-500\/20,
+[data-accent] .shadow-blue-600\/30 {
+  --tw-shadow-color: var(--accent-shadow) !important;
+}
+
+/* ============================================================
+   MODO OSCURO
+   ============================================================ */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #0b0f19;
+  color: #f1f5f9;
+}
+
+html.dark[data-accent] .dark\:bg-blue-950\/20,
+html.dark[data-accent] .dark\:bg-blue-950\/30,
+html.dark[data-accent] .dark\:bg-blue-950\/40,
+html.dark[data-accent] .dark\:bg-blue-950\/50,
+html.dark[data-accent] .dark\:bg-blue-950\/60,
+html.dark[data-accent] .dark\:hover\:bg-blue-950\/50:hover,
+html.dark[data-accent] .dark\:hover\:bg-blue-950\/20:hover {
+  background-color: var(--accent-dark-bg) !important;
+}
+
+html.dark[data-accent] .dark\:text-blue-300,
+html.dark[data-accent] .dark\:text-blue-400 {
+  color: var(--accent-dark-text) !important;
+}
+
+html.dark[data-accent] .dark\:border-blue-800,
+html.dark[data-accent] .dark\:hover\:border-blue-600:hover {
+  border-color: var(--accent-main) !important;
+}
+
+/* ============================================================
+   MODO LECTURA (SEPIA CÁLIDO ANTI-FATIGA VISUAL)
+   ============================================================ */
+html.reading {
+  color-scheme: light;
+}
+
+html.reading,
+html.reading body {
+  background-color: #f5efe3 !important;
+  color: #2e261f !important;
+}
+
+html.reading .bg-white,
+html.reading .bg-white\/95 {
+  background-color: #fdfbf7 !important;
+}
+
+html.reading .bg-slate-50,
+html.reading .bg-slate-50\/50,
+html.reading .bg-slate-100 {
+  background-color: #ede4d3 !important;
+}
+
+html.reading .border-slate-100,
+html.reading .border-slate-200,
+html.reading .border-slate-200\/60,
+html.reading .border-slate-300 {
+  border-color: #e2d5bf !important;
+}
+
+html.reading .text-slate-900,
+html.reading .text-slate-800 {
+  color: #2b2118 !important;
+}
+
+html.reading .text-slate-700,
+html.reading .text-slate-600 {
+  color: #4c3f33 !important;
+}
+
+html.reading .text-slate-500,
+html.reading .text-slate-400 {
+  color: #796a5b !important;
+}
+
+html.reading input,
+html.reading textarea,
+html.reading select {
+  background-color: #fbf8f1 !important;
+  border-color: #dfd2be !important;
+  color: #2e261f !important;
+}
+
+/* Transiciones suaves al alternar temas */
+html {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
